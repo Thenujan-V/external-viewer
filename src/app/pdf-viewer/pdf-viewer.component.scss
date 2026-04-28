@@ -14,12 +14,68 @@
 }
 
 .viewer-state {
+  position: relative;
   display: grid;
   place-items: center;
   color: #4a5866;
   font-size: 1rem;
+  text-align: center;
 }
 
 .viewer-state--error {
   color: #b42318;
+}
+
+.viewer-state--loading {
+  background: rgba(0, 0, 0, 0.071);
+}
+
+.viewer-state--loading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:rgba(0, 0, 0, 0.068);
+}
+
+.viewer-loading {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.viewer-loading img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.viewer-loading p {
+  background: linear-gradient(90deg, #FF6A00, rgba(248, 178, 0, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.viewer-loading__spinner {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  animation: viewer-spin 1.15s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes viewer-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

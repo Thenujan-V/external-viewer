@@ -1,5 +1,8 @@
-<div *ngIf="isLoading" class="viewer-state">
-  <p>Loading document...</p>
+<div *ngIf="isLoading" class="viewer-state viewer-state--loading">
+  <div class="viewer-loading">
+    <img src="/assets/loading.png" alt="Loading document" class="viewer-loading__spinner" />
+    <p>Loading document...</p>
+  </div>
 </div>
 
 <div *ngIf="!isLoading && displayErrorMessage" class="viewer-state viewer-state--error">
