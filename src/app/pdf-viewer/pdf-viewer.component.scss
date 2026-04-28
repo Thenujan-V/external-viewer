@@ -23,7 +23,15 @@
 }
 
 .viewer-state--error {
+  background-color: #b422180c;
   color: #b42318;
+}
+
+.viewer-state--error p {
+  background-color: #b4221821;
+  padding: 1.5rem 2rem;
+  border: 1px solid #b422184f;
+  letter-spacing: 1px;
 }
 
 .viewer-state--loading {
