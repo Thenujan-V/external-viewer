@@ -8,6 +8,8 @@
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr;
+  border: 1px solid #ff7b0843;
+  border-radius: 6px;
 }
 
 .topbar {
@@ -15,8 +17,9 @@
   padding: 0 1.5rem;
   display: flex;
   align-items: center;
-  background: #ffffff;
-  border-bottom: 1px solid #d9e0e7;
+  justify-content: space-between;
+  background: #ff7b0817;
+  border-bottom: 1px solid #ff7b084f;
 }
 
 .logo-slot {
@@ -25,9 +28,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px dashed #b7c3cf;
-  border-radius: 10px;
-  background: #f9fbfc;
+  border: 1px dashed #ff7b084f;
+  border-radius: 6px;
+  // background: #f9fbfc;
   padding: 8px 0;
   background-image: url(../../assets/logo.png);
   background-repeat: no-repeat;
@@ -35,6 +38,12 @@
   background-position: center;
   
 
+}
+
+.topbar p{
+  font-size: 0.875rem;
+  color: #41413fa1;
+  font-weight: 600;
 }
 
 .viewer-shell {

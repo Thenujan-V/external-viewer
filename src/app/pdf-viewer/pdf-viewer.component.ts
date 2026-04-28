@@ -45,9 +45,10 @@ export class PdfViewerComponent implements OnChanges, OnDestroy {
     this.renderErrorMessage = '';
   }
 
-  onPdfLoadFail() {
+  onPdfLoadFail(error?: unknown) {
     this.pdfLoaded = false;
     this.renderErrorMessage = 'This PDF could not be displayed.';
+    console.error('[PdfViewer] pdfLoadingFailed', error);
   }
 
   private prepareViewerSource(): void {
