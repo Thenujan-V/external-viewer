@@ -4,7 +4,7 @@ import { Observable, map } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 export interface ExternalDocumentResponse {
-  data: string | { mimeType?: string; metaData?: string };
+  data: string | { mimeType?: string; metadata?: string };
   message: string;
   status: number;
 }
@@ -36,7 +36,7 @@ export class DocumentService {
           }
 
           const payload = response.data;
-          const base64 = typeof payload === 'string' ? payload : payload.metaData ?? '';
+          const base64 = typeof payload === 'string' ? payload : payload.metadata ?? '';
           const mimeType = typeof payload === 'string' ? 'application/pdf' : payload.mimeType ?? 'application/pdf';
 
           if (!base64) {
