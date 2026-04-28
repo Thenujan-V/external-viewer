@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+.pdf-surface,
+.viewer-state {
+  display: block;
+  width: 100%;
+  min-height: calc(100vh - 114px);
+  border: 1px solid #d9e0e7;
+  border-radius: 14px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.viewer-state {
+  display: grid;
+  place-items: center;
+  color: #4a5866;
+  font-size: 1rem;
+}
+
+.viewer-state--error {
+  color: #b42318;
+}

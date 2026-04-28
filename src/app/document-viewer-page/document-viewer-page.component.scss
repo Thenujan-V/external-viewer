@@ -1,0 +1,59 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f4f6f8;
+}
+
+.viewer-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.topbar {
+  height: 72px;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-bottom: 1px solid #d9e0e7;
+}
+
+.logo-slot {
+  width: 240px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #b7c3cf;
+  border-radius: 10px;
+  background: #f9fbfc;
+  padding: 8px 0;
+  background-image: url(../../assets/logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  
+
+}
+
+.viewer-shell {
+  min-height: 100vh;
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    padding: 0 1rem;
+  }
+
+  .viewer-shell {
+    padding: 1rem;
+  }
+
+  .logo-slot {
+    width: 148px;
+    height: 36px;
+  }
+}

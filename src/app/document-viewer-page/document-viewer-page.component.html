@@ -1,0 +1,15 @@
+<div class="viewer-layout">
+  <header class="topbar">
+    <div class="logo-slot" aria-label="AuraDocs logo placeholder">
+      <!-- <img src="../../assets/logo.png" alt="auradocs_logo"> -->
+    </div>
+  </header>
+
+  <main class="viewer-shell">
+    <app-pdf-viewer
+      [pdfSrc]="pdfSrc"
+      [isLoading]="isLoading"
+      [errorMessage]="errorMessage"
+    ></app-pdf-viewer>
+  </main>
+</div>

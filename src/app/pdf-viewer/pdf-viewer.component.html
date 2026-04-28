@@ -1,0 +1,29 @@
+<div *ngIf="isLoading" class="viewer-state">
+  <p>Loading document...</p>
+</div>
+
+<div *ngIf="!isLoading && displayErrorMessage" class="viewer-state viewer-state--error">
+  <p>{{ displayErrorMessage }}</p>
+</div>
+
+<ngx-extended-pdf-viewer
+  *ngIf="!isLoading && pdfSrc && !displayErrorMessage"
+  class="pdf-surface"
+  [src]="viewerSrc"
+  [textLayer]="true"
+  [showHandToolButton]="true"
+  [showPresentationModeButton]="true"
+  [showDownloadButton]="true"
+  [showPrintButton]="false"
+  [showOpenFileButton]="false"
+  [showSecondaryToolbarButton]="true"
+  [enablePrint]="false"
+  [showTextEditor]="false"
+  [showDrawEditor]="false"
+  [handTool]="true"
+  [height]="'calc(100vh - 114px)'"
+  backgroundColor="#4d4d4d"
+  [theme]="'dark'"
+  (pdfLoaded)="onPdfLoaded()"
+  (pdfLoadingFailed)="onPdfLoadFail()"
+></ngx-extended-pdf-viewer>
