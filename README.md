@@ -1,27 +1,47 @@
-# AuradocsExternalViewer
+# AuraDOCS v4 | External Document Viewer
+# Overview
+This is a standalone Angular micro-frontend designed to provide secure, one-time access to documents stored within the AuraDOCS ecosystem. It is specifically built to handle requests from both unregistered external customers (via ERP integration) and registered internal users.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+This project is deployed as a sub-path application at v4.auradocs.com/viewer.
 
-## Development server
+# Security Architecture
+The viewer operates on a "Zero-Knowledge" frontend principle:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Token-Based Access: Access is granted only via a unique UUID token.
 
-## Code scaffolding
+Hybrid Auth: * External Users: Validated strictly via the token existence and expiry.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Internal Users: Backend enforces a 401 challenge if the token is flagged as "Private," triggering a redirect to the main AuraDOCS login.
 
-## Build
+One-Time Consumption: Tokens are invalidated by the image-manager microservice immediately after the first successful stream.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Technical Stack
+Framework: Angular 18+ (Standalone Components)
 
-## Running unit tests
+PDF Engine: ng2-pdf-viewer (Mozilla PDF.js based)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Communication: REST API via HttpClient (Base64 Stream)
 
-## Running end-to-end tests
+Deployment: Nginx Reverse Proxy (Sub-path routing)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Getting Started
+Prerequisites
+Node.js (v18.x or higher)
+Angular (v18)
+Angular CLI (`npm install -g @angular/cli`)
 
-## Further help
+Installation
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+git clone [repository-url]
+cd auradocs-external-viewer
+npm install
+
+Development Server
+Run ng serve for a dev server. Navigate to `http://localhost:4200/viewer?token=YOUR_TEST_TOKEN`
+
+Note: You must include a token query parameter, otherwise the app will redirect to the Access Denied page.
+
+# Build & Deployment
+Production Build
+The application must be built with a specific base href to function under the Nginx sub-path:
+`ng build --configuration production --base-href /viewer/`

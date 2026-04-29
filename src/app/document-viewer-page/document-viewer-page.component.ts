@@ -92,6 +92,10 @@ export class DocumentViewerPageComponent implements OnInit, OnDestroy {
       return 'You are not authorized to view this document.';
     }
 
+    if (status === 403) {
+      return 'You are not authorized to use this token.';
+    }
+
     if (status === 404) {
       return 'The requested document was not found.';
     }
